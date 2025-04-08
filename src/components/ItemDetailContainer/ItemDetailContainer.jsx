@@ -1,14 +1,17 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+// src/components/itemDetailContainer/ItemDetailContainer.jsx
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import products from '../../data/products';
+import ItemDetail from '../itemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
   const { itemId } = useParams();
+  const item = products.find((p) => p.id === itemId);
+
+  if (!item) return <p style={{ padding: '20px' }}>Producto no encontrado.</p>;
 
   return (
-    <div style={{ padding: "20px", margin: "20px", border: "1px solid #ddd", borderRadius: "8px", textAlign: "center" }}>
-      <h2>Detalle del Producto</h2>
-      <p>ID del Producto: {itemId}</p>
-    </div>
+    <ItemDetail item={item} />
   );
 };
 
