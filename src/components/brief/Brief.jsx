@@ -1,17 +1,14 @@
-import React from 'react';
-
-const Brief = ({ cart, total }) => {
+const Brief = ({ cart, total, orderId }) => {
     const now = new Date();
     const fecha = now.toLocaleDateString();
     const hora = now.toLocaleTimeString();
-    const orderId = Math.floor(Math.random() * 1000000);
 
     return (
         <div style={{ padding: '20px', border: '1px solid #ddd', marginTop: '30px', borderRadius: '8px' }}>
             <h2>Resumen de Compra</h2>
             <p><strong>Fecha:</strong> {fecha}</p>
             <p><strong>Hora:</strong> {hora}</p>
-            <p><strong>ID de operación:</strong> #{orderId}</p>
+            <p><strong>ID de operación:</strong> {orderId}</p>
 
             <hr />
 
@@ -28,5 +25,4 @@ const Brief = ({ cart, total }) => {
         </div>
     );
 };
-
 export default Brief;
